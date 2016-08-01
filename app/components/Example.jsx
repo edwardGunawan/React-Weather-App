@@ -11,7 +11,12 @@ var React = require('react');
 /* refactor to stateless functional component */
 var Example = (props) => {
   return (
-    <h3> Examples </h3>
+    <div>
+      <h3> Examples </h3>
+      <p> Welcome to the examples page! </p>
+
+    </div>
+
   );
 }
 

@@ -17,7 +17,10 @@ var React = require('react');
 /* create this component stateless function, to refactor */
 var About = (props) => {
   return (
-    <h3> About Components</h3>
+    <div>
+      <h3> About Components</h3>
+      <p> Welcome to the about page. </p>
+    </div>
   );
 }
 
