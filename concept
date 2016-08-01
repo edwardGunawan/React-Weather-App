@@ -1,0 +1,52 @@
+the reason why we create an app is because to create all our raw file.
+All of the app will be compile it into bundle.js and then shoot it to
+the server, thats why we just need to put it into bundle.js
+* the Bundle.js is used by the browser inside of index.html so we keep
+it into the public folder.
+
+* Axios:  make the request: takes the URL goes off and fetches it and bring you back the result
+* inside the getInitialState - isLoading: default: false, when someone trigger new location search is true, and after
+finish search, it will set it again to false.
+* So in that case, when someone is using isLoading
+is when the user type something and enter, when the API is looking for the information. It
+will said like fetching the weather, or said in search, and once the API is finish
+searching and get the data, the isLoading will be false again, it will get the data render in the weather.jsx.
+
+
+
+when you do this.props.children, is when you want to passed in a tag inside another tag.
+Ex:
+var Main = React.createClass({
+render: function() {
+  return (
+    <div className="main">
+      <p>Main components custom jsx</p>
+      {this.props.children}
+    </div>
+  )
+}
+});
+
+var App = React.createClass({
+render: function () {
+  return (
+    <div className="app">
+      <p>Add a bunch of other custom components here</p>
+    </div>
+  );
+}
+});
+
+ReactDOM.render(
+<Main>
+  <App/>
+</Main>,
+document.getElementById('container')
+);
+
+* stateless functional component: simple presentational component,
+it only renders something to the screen, instead of calling react.createClass
+if we only have the render method, we can use just a function
+and a props that passes down as a return statement function.
+* you can only refactor these component, because they Only
+have render function, and only a presentational component.
