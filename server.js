@@ -11,8 +11,6 @@ const PORT = process.env.PORT || 3000;
 // Create our app
 var app= express();
 
-app.use(express.static('public'));
-
 /* direct all https traffic to http */
 app.use(function(req, res, next){ // next is when the middleware is done
   if(req.headers['x-forwarded-proto'] === 'http'){
@@ -22,6 +20,10 @@ app.use(function(req, res, next){ // next is when the middleware is done
   }
 
 });
+
+app.use(express.static('public'));
+
+
 
 
 
