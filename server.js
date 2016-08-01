@@ -1,9 +1,10 @@
 var express = require('express');
 
-var port = process.env.PORT || 3000;
+// work the same but it is like a final, constant
+const PORT = process.env.PORT || 3000;
 
 // Create our app
-const PORT = express(); // work the same but it is like a final, constant
+var app= express(); 
 
 app.use(express.static('public'));
 
