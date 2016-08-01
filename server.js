@@ -4,7 +4,7 @@ var express = require('express');
 const PORT = process.env.PORT || 3000;
 
 // Create our app
-var app= express(); 
+var app= express();
 
 app.use(express.static('public'));
 
@@ -13,7 +13,7 @@ app.use(function(req, res, next){ // next is when the middleware is done
   if(req.headers['x-forwarded-proto'] === 'http'){
     next(); // it will keep executing so return it to the browser
   } else {
-    res.redirect('http://' + req.hostname + req.url);
+    res.redirect('https://' + req.hostname + req.url);
   }
 
 });
