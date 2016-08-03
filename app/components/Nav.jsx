@@ -15,16 +15,44 @@ var {Link, IndexLink} = require('react-router');
 // });
 
 /* refactoring again using the stateless functional component */
-var Nav = (props) => {
-  return (
-    <div>
-      <h2>Nav Component</h2>
-      <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}> Get Weather</IndexLink> {/* to props is where we specify where the path is going to */}
-      <Link to="/about" activeClassName="active" activeStyle={{fontWeight: 'bold'}}> About</Link>
-      <Link to="/example" activeClassName="active" activeStyle={{fontWeight: 'bold'}}> Example</Link>
-    </div>
-  );
-}
+var Nav = React.createClass({
+  onSearch: function(e){
+    e.preventDefault();
+    alert('not yet wired up!');
+  },
+  render: function(){
+    return(
+      <div className="top-bar">
+        <div className="top-bar-left">
+          <ul className="menu">
+            <li className="menu-text"> React Weather App </li>
+            <li>
+              <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}> Get Weather</IndexLink> {/* to props is where we specify where the path is going to */}
+            </li>
+            <li>
+              <Link to="/about" activeClassName="active" activeStyle={{fontWeight: 'bold'}}> About</Link>
+            </li>
+            <li>
+              <Link to="/example" activeClassName="active" activeStyle={{fontWeight: 'bold'}}> Example</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="top-bar-right">
+          <form onSubmit={this.onSearch}>
+            <ul className="menu">
+              <li>
+                <input type="search" placeholder="Search weather" />
+              </li>
+              <li>
+                <input type="submit" className="button" value="Get Weather"/>
+              </li>
+            </ul>
+          </form>
+        </div>
+      </div>
+    );
+  }
+});
 
 /* without the link tag we are able to use a tag href to #/about and Go to About,
 we are able to custom style and classes to the element to the link that is for the current page,
