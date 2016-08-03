@@ -64,7 +64,7 @@ var Weather = React.createClass({
     /* renderMessage(): conditionally render component inside of our state */
     return(
       <div>
-        <h1 className="text-center"> Weather Components</h1>
+        <h1 className="text-center page-title">Get Weather</h1>
         <WeatherForm onSearch={this.handleSearch}/>
         {renderMessage()}
         {renderError()}

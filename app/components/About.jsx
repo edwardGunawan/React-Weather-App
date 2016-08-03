@@ -18,7 +18,7 @@ var React = require('react');
 var About = (props) => {
   return (
     <div>
-      <h1 className="text-center"> About </h1>
+      <h1 className="text-center page-title"> About </h1>
       <p>
         This app is a weather app in which user are able to see any weather
         in any location.

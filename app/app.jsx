@@ -15,6 +15,8 @@ var Example = require('Example');
 // load foundation css! is the css loader
 require('style!css!foundation-sites/dist/foundation.min.css');
 $(document).foundation();
+// add css and we use the css and style loader to load in our style
+require('style!css!applicationStyles')
 
 
 ReactDOM.render(
