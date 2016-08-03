@@ -8,10 +8,11 @@ module.exports = {
   getTemp: function(location){
     var encodedLocation = encodeURIComponent(location); // change it to encoded URI
     var requestURL = `${OPEN_WEATHER_MAP_URL}&q=${encodedLocation}`; // you can inject a variable inside of the string, everything inside of the curly braces is executed as a regular JS expression as like a URL
+    // debugger;
 
     // make the request: takes the URL goes off and fetches it and bring you back the result
     return axios.get(requestURL).then(function(res){
-      debugger;
+      // debugger;
       /* store the weather from openWeather map API */
       /* properly catch all errors */
       if(res.data.cod && res.data.message){

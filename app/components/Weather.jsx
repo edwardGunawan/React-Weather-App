@@ -2,20 +2,21 @@ var React = require('react');
 var WeatherForm = require('WeatherForm');
 var WeatherMessage = require('WeatherMessage');
 var openWeatherMap = require('openWeatherMap');
+var ErrorModal = require('ErrorModal');
 
 var Weather = React.createClass({
 
   getInitialState: function(){
       return {
-      isLoading: false
+      isLoading: false,
     };
   },
   handleSearch: function(location){
     var that = this;
 
-    debugger;
     this.setState({
-      isLoading: true
+      isLoading: true,
+      errorMessage: undefined
     });
 
     openWeatherMap.getTemp(location).then(function(temp){
@@ -24,19 +25,18 @@ var Weather = React.createClass({
          temp: temp,
          isLoading: false
        });
-    }, function(errorMessage){
+    }, function(e){
       /* at this point no data: set isLoading back to false
       set other state to null to prevent fallback */
       that.setState({
-        location :null,
-        temp: null,
-        isLoading: false
+        isLoading: false,
+        errorMessage: e.message
       });
     });
   },
   render: function(){
 
-    var {temp,location,isLoading} =this.state;
+    var {temp,location,isLoading,errorMessage} =this.state;
 
     /* because renderMessage function is a regular function but not an arrow function,
     so 'this' will not bind with the parent function, if you use arrow function,
@@ -52,12 +52,22 @@ var Weather = React.createClass({
         return <WeatherMessage temp={temp} location={location} />
       }
     }
+    /* set the error modal */
+    function renderError(){
+      // debugger;
+      if(typeof errorMessage === 'string'){
+        return (
+          <ErrorModal message={errorMessage} />
+        );
+      }
+    }
     /* renderMessage(): conditionally render component inside of our state */
     return(
       <div>
         <h1 className="text-center"> Weather Components</h1>
         <WeatherForm onSearch={this.handleSearch}/>
         {renderMessage()}
+        {renderError()}
       </div>
     );
   }
