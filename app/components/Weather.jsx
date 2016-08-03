@@ -47,7 +47,7 @@ var Weather = React.createClass({
       /* the thing about isLoading is when the API is searching for the weather,
        it will render said that if the user is fetching the weather or not */
       if(isLoading){
-        return <h3>Fetching Weather ....</h3>
+        return <h3 className="text-center">Fetching Weather ....</h3>
       }else if(location && temp){
         return <WeatherMessage temp={temp} location={location} />
       }
@@ -55,7 +55,7 @@ var Weather = React.createClass({
     /* renderMessage(): conditionally render component inside of our state */
     return(
       <div>
-        <h3> Weather Components</h3>
+        <h1 className="text-center"> Weather Components</h1>
         <WeatherForm onSearch={this.handleSearch}/>
         {renderMessage()}
       </div>
