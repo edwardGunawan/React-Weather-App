@@ -1,0 +1,11 @@
+$space-large:2.5rem; /* create a global variable  something that CSS doesn't have */
+$title-color: #555; // you have to use $ to make a variable, #555 slight light grey
+.page-title {
+  color: $title-color;
+  margin-top: $space-large;
+  margin-bottom:$space-large;
+}
+
+input[type="search"]{
+  box-shadow: none;
+}
