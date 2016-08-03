@@ -1,5 +1,22 @@
+var webpack = require('webpack');
+
 module.exports = {
-  entry: './app/app.jsx',
+  entry: [
+    'script!jquery/dist/jquery.min.js', //Regular script pack: not regular package for webpack, so we need to use script
+    //loader npm module to properly handle it.
+    'script!foundation-sites/dist/foundation.min.js',
+    './app/app.jsx'
+  ],
+  externals: {
+    jquery: 'jQuery' // key is the module name, and value is the variable name that we want it to be available in our externals script file
+  },
+  plugins:[ // give us a shortcut
+    new webpack.ProvidePlugin({
+      // object specify key: var name to watch for, val: module to replace it with
+      '$': 'jquery', // when we see dollar sign we want to use the jQuery module
+      'jQuery': 'jquery'
+    })
+  ],
   output: {
     path: __dirname,
     filename: './public/bundle.js'

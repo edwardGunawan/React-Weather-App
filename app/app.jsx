@@ -12,6 +12,10 @@ var Weather = require('Weather');
 var About = require('About');
 var Example = require('Example');
 
+// load foundation css! is the css loader
+require('style!css!foundation-sites/dist/foundation.min.css');
+
+
 ReactDOM.render(
   /* Router set up and set a args of history to hashHistory
    the path ="/" it will be our root application, component is the main
