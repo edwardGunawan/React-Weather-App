@@ -1,4 +1,5 @@
 var React = require('react');
+var {Link} = require('react-router');
 
 // var Example = React.createClass({
 //   render: function(){
@@ -12,8 +13,16 @@ var React = require('react');
 var Example = (props) => {
   return (
     <div>
-      <h3> Examples </h3>
-      <p> Welcome to the examples page! </p>
+      <h1 className="text-center"> Examples </h1> {/* centered the text in our h1 component */}
+      <p> Here are a few example to try out: </p>
+      <ol>
+        <li>
+          <Link to="/?location=Philadelphia"> Philadelphia, PA </Link>
+        </li>
+        <li>
+          <Link to="/?location=Rio">Rio, Brazil</Link>
+        </li>
+      </ol>
 
     </div>
 

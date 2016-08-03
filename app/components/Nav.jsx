@@ -21,7 +21,7 @@ var Nav = React.createClass({
     alert('not yet wired up!');
   },
   render: function(){
-    return(
+    return (
       <div className="top-bar">
         <div className="top-bar-left">
           <ul className="menu">

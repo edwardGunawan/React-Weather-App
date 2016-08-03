@@ -21,11 +21,14 @@ how it will get routed */
 /* refactor it again using stateless functional component, arrow key */
 var Main = (props) => {
   return (
-    <div>
-      <Nav />
-      <h2>Main Component</h2>
-      {props.children} {/* because props is already been passed in */}
-    </div>
+      <div>
+        <Nav/>
+        <div className="row">
+          <div className="columns medium-6 large-4 small-centered"> {/* it will centered our column in our content on every width */}
+            {props.children} {/* because props is already been passed in */}
+          </div>
+        </div>
+      </div>
   );
 }
 
