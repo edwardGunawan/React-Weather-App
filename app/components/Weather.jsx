@@ -14,9 +14,13 @@ var Weather = React.createClass({
   handleSearch: function(location){
     var that = this;
 
+    /* so after finish you have to clear the URL string and all the location and temp
+    to prevent data from lingering around */
     this.setState({
       isLoading: true,
-      errorMessage: undefined
+      errorMessage: undefined,
+      location: undefined,
+      temp:undefined
     });
 
     openWeatherMap.getTemp(location).then(function(temp){
@@ -34,6 +38,23 @@ var Weather = React.createClass({
       });
     });
   },
+  componentDidMount: function(){ // this method fires once the component has successfully mounted into the browser it is like the initial state
+    var location = this.props.location.query.location; // get the query string, the last location can be changed based on like name or anything
+    if(location && location.length>0){
+      this.handleSearch(location);
+      window.location.hash="#/"; // this is set it to the root of the file so the location get deleted
+    }
+  },
+  /* when already have a weather component render, and update the URL, the component
+  doesn't know how to update itself, so we need a way to capture changes to props
+  A parent can always update a child's props */
+  componentWillReceiveProps : function(newProps){
+    var location = newProps.location.query.location;
+    if(location && location.length>0){
+      this.handleSearch(location);
+      window.location.hash="#/";
+    }
+  }, // get call the component props gets updated, its a function
   render: function(){
 
     var {temp,location,isLoading,errorMessage} =this.state;
