@@ -39,7 +39,9 @@ var Weather = React.createClass({
     });
   },
   componentDidMount: function(){ // this method fires once the component has successfully mounted into the browser it is like the initial state
+    // the location.props comes from React Router and gets injected into our components because we configure them with React Router.
     var location = this.props.location.query.location; // get the query string, the last location can be changed based on like name or anything
+    // get access to various property of props, and one of them is location
     if(location && location.length>0){
       this.handleSearch(location);
       window.location.hash="#/"; // this is set it to the root of the file so the location get deleted

@@ -19,6 +19,9 @@ how it will get routed */
 // });
 
 /* refactor it again using stateless functional component, arrow key */
+/* small will affect medium and large, so if small is centered, which is small-centered,
+then medium and large will also be centered, if you want to let small to be centered, then
+just take small-centered */
 var Main = (props) => {
   return (
       <div>

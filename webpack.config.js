@@ -4,7 +4,7 @@ module.exports = {
   entry: [
     'script!jquery/dist/jquery.min.js', //Regular script pack: not regular package for webpack, so we need to use script
     //loader npm module to properly handle it.
-    'script!foundation-sites/dist/foundation.min.js',
+    'script!foundation-sites/dist/foundation.min.js', // this is loaded first before the app.jsx is loaded
     './app/app.jsx'
   ],
   externals: {

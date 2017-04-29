@@ -12,7 +12,7 @@ var Weather = require('Weather');
 var About = require('About');
 var Example = require('Example');
 
-// load foundation css! is the css loader
+// load foundation css! is the css loader, because require are not able to look for it
 require('style!css!foundation-sites/dist/foundation.min.css');
 $(document).foundation();
 // add css and we use the css and style loader to load in our style

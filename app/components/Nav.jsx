@@ -6,6 +6,7 @@ var {Link, IndexLink} = require('react-router');
 //     return (
 //       <div>
 //         <h2>Nav Component</h2>
+            // The index link is based off of the root directory, where the route path is for the indexRoute
 //         <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}> Get Weather</IndexLink> {/* to props is where we specify where the path is going to */}
 //         <Link to="/about" activeClassName="active" activeStyle={{fontWeight: 'bold'}}> About</Link>
 //         <Link to="/example" activeClassName="active" activeStyle={{fontWeight: 'bold'}}> Example</Link>
